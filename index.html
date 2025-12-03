@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI解决方案专家 | 个人作品集</title>
+    <!-- 引入 Tailwind CSS 进行快速样式开发 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 FontAwesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        // 确保在整个页面（包括外部 CDN 脚本）加载完成后再进行 Tailwind 配置。
+        window.onload = function() {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#3B82F6', // 科技蓝
+                            secondary: '#8B5CF6', // 智能紫
+                            dark: '#0F172A', // 深邃黑背景
+                            surface: '#1E293B', // 卡片背景
+                            accent: '#10B981', // 成功绿
+                        },
+                        fontFamily: {
+                            sans: ['"Noto Sans SC"', 'sans-serif'],
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F172A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        
+        /* 玻璃拟态效果 */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* 流程连接线动画 */
+        .flow-line {
+            position: relative;
+        }
+        .flow-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3B82F6, transparent);
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+
+        /* 头像呼吸动画 */
+        .avatar-glow {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+            animation: glow 3s infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+            to { box-shadow: 0 0 25px rgba(139, 92, 246, 0.6); }
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-200 font-sans antialiased selection:bg-primary selection:text-white">
+
+    <!-- 导航栏 -->
+    <nav class="fixed w-full z-50 glass-card border-b-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                        AI Solution Expert
+                    </span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">首页</a>
+                        <a href="#insights" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">思维体系</a>
+                        <a href="#projects" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">实战案例</a>
+                        <a href="#avatar-chat" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">数字分身</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section: 个人定位 -->
+    <section id="home" class="pt-32 pb-20 relative overflow-hidden">
+        <!-- 背景装饰 -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary opacity-10 rounded-full blur-3xl filter -z-10"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary opacity-10 rounded-full blur-3xl filter -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-block px-4 py-1 mb-6 rounded-full bg-surface border border-gray-700 text-sm text-primary">
+                🚀 生物医学硕士 x 市场实战 x AI 开发者
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+                将复杂的行业痛点 <br>
+                转化为 <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">可落地的 AI 解决方案</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400">
+                我不止写代码，更懂业务。利用 RAG、Agent 与多模态技术，解决医学检测与新零售领域的真实商业难题，期待成为AI工业革命浪潮一员。
+            </p>
+            <div class="mt-10 flex justify-center gap-4">
+                <!-- CTA 1: 查看我的落地方法论 (内部跳转，但作为主要行动点保留) -->
+                <a href="#insights" class="px-8 py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-bold hover:opacity-90 transition transform hover:scale-105 shadow-lg shadow-blue-500/30">
+                    查看我的落地方法论
+                </a>
+                <!-- CTA 2: 与数字分身对话 (内部跳转，但作为主要行动点保留) -->
+                <a href="#avatar-chat" class="px-8 py-3 rounded-lg bg-surface border border-gray-600 hover:border-primary transition hover:text-primary">
+                    与数字分身对话
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section: 行业认知与方法论 (重构核心) -->
+    <section id="insights" class="py-20 bg-surface/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">AI 落地 <span class="text-secondary">认知与方法论</span></h2>
+                <p class="text-gray-400 mt-2">不为了技术而技术，只为了解决问题而应用。</p>
+            </div>
+
+            <!-- 1. 落地方法论流程图 -->
+            <div class="mb-20">
+                <h3 class="text-xl font-bold text-white mb-8 border-l-4 border-primary pl-4">我的 AI 解决方案闭环 (The Landing Framework)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+                    <!-- Step 1 -->
+                    <div class="glass-card p-6 rounded-xl relative z-10 hover:border-primary transition">
+                        <div class="text-4xl text-gray-600 font-bold mb-2 opacity-30">01</div>
+                        <h4 class="text-lg font-bold text-primary mb-2"><i class="fa-solid fa-stethoscope mr-2"></i>场景诊断</h4>
+                        <p class="text-sm text-gray-400">判断 "能不能做" 与 "值不值得做"。核心评估：<b>数据质量</b>、<b>容错率</b>与<b>ROI</b>。</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="glass-card p-6 rounded-xl relative z-10 hover:border-primary transition">
+                        <div class="text-4xl text-gray-600 font-bold mb-2 opacity-30">02</div>
+                        <h4 class="text-lg font-bold text-secondary mb-2"><i class="fa-solid fa-database mr-2"></i>数据基建</h4>
+                        <p class="text-sm text-gray-400">无数据不 AI。专注于垂直领域<b>非结构化数据</b>（SOP/图像/病历）的清洗与结构化。</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="glass-card p-6 rounded-xl relative z-10 hover:border-primary transition">
+                        <div class="text-4xl text-gray-600 font-bold mb-2 opacity-30">03</div>
+                        <h4 class="text-lg font-bold text-accent mb-2"><i class="fa-solid fa-microchip mr-2"></i>模型与架构</h4>
+                        <p class="text-sm text-gray-400">基于项目预算、安全要求和技术需求，选择合适的大模型与解决方案。</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="glass-card p-6 rounded-xl relative z-10 hover:border-primary transition">
+                        <div class="text-4xl text-gray-600 font-bold mb-2 opacity-30">04</div>
+                        <h4 class="text-lg font-bold text-blue-400 mb-2"><i class="fa-solid fa-arrows-spin mr-2"></i>人机协作</h4>
+                        <p class="text-sm text-gray-400">AI 是 Copilot。设计 <b>Human-in-the-loop</b> 机制，确保合规与最后一步决策权。</p>
+                    </div>
+                    
+                    <!-- 桌面端连接线 -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-primary/20 via-secondary/50 to-accent/20 -z-0 transform -translate-y-1/2"></div>
+                </div>
+            </div>
+
+            <!-- 2. 行业解决方案矩阵 (卡片网格重构) -->
+            <div>
+                <!-- Modified: Added flex container for title and 'more' link, moved mb-8 here -->
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-xl font-bold text-white border-l-4 border-secondary pl-4">垂直行业痛点与 AI 解法 (Industry Matrix)</h3>
+                    <!-- 'More' Link modified: Changed the placeholder URL to # for better testing -->
+                    <!-- TODO: !!! 请将 href="#" 替换为您的行业报告文档链接 (如 Google Doc, PDF, Notion 等) !!! -->
+                    <a href="https://ai.feishu.cn/wiki/LBFowD3jQiCVBPke5FzcowGrnEc?from=from_copylink" target="_blank" class="text-sm text-secondary hover:text-primary transition flex items-center font-medium px-3 py-1 rounded-full border border-secondary/50 hover:border-primary">
+                        查看完整报告 <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+                    </a>
+                </div>
+                
+                <div class="space-y-12">
+                    <!-- 卡片 1: 医疗/生命科学 (已更新为CSV数据) -->
+                    <div class="glass-card rounded-xl shadow-lg border-t-4 border-t-blue-400 p-6">
+                        <h4 class="text-xl font-bold text-blue-300 mb-4 flex items-center border-b border-gray-700 pb-3">
+                            <i class="fa-solid fa-user-doctor mr-2"></i> 医疗/生命科学 (多场景应用)
+                        </h4>
+
+                        <!-- 场景 1: 辅助诊断与影像分析 -->
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-primary mb-3">1. 辅助诊断与影像分析</h5>
+                            <div class="space-y-4 text-sm">
+                                <!-- 痛点 1: 阅片负荷 -->
+                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-primary transition">
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 阅片负荷大，易产生疲劳导致漏诊/误诊（如微小病灶）。</p>
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 深度学习模型快速处理、分析医学影像（X光、CT、MRI、病理切片），进行病灶检测、定量分析和良恶性判断。</p>
+                                    <p><span class="font-semibold text-gray-300">应用案例：</span> Perceptra (Google DeepMind/Verily): 用于糖尿病视网膜病变（DR）的筛查。 InferRead CT Lung (推想科技): 辅助医生进行肺结节的检测与测量。</p>
+                                </div>
+                                <!-- 痛点 2: 病理切片分析 -->
+                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-primary transition">
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 病理切片分析复杂耗时，要求高专业度。</p>
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 数字病理AI分析，自动分割、分类组织类型，识别癌细胞和免疫细胞，加速病理诊断流程。</p>
+                                    <p><span class="font-semibold text-gray-300">应用案例：</span> PathAI/Paige: 专注于癌症病理学诊断，通过分析全玻片图像（WSI）辅助肿瘤分级和预后预测。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 场景 2: 药物研发与新药发现 -->
+                        <div>
+                            <h5 class="text-lg font-bold text-secondary mb-3">2. 药物研发与新药发现</h5>
+                            <div class="space-y-4 text-sm">
+                                <!-- 痛点 1: 药物研发周期 -->
+                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-secondary transition">
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 药物研发周期长（平均10-15年）、成本高、成功率低。</p>
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 药物靶点识别、化合物虚拟筛选、分子设计优化和ADMET（吸收、分布、代谢、排泄、毒性）性质预测，极大地缩短了临床前研究时间。</p>
+                                    <p><span class="font-semibold text-gray-300">应用案例：</span> AlphaFold (DeepMind): 预测蛋白质三维结构。 Insilico Medicine (英科智能): 使用生成式AI（Generative AI）设计新型分子结构，并已成功推进多个AI发现的药物进入临床试验。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 2: 新零售/时尚电商 (已更新为CSV数据) -->
+                    <div class="glass-card rounded-xl shadow-lg border-t-4 border-t-purple-400 p-6">
+                        <h4 class="text-xl font-bold text-purple-300 mb-4 flex items-center border-b border-gray-700 pb-3">
+                            <i class="fa-solid fa-bag-shopping mr-2"></i> 新零售/时尚电商 (多场景应用)
+                        </h4>
+                        
+                        <!-- 场景 1: 个性化推荐与用户体验 -->
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-primary mb-3">1. 个性化推荐与用户体验</h5>
+                            <div class="space-y-4 text-sm">
+                                <!-- 痛点 1: 推荐结果不精准 -->
+                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-primary transition">
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 用户在海量商品中难以找到所需，转化率低；推荐结果不精准。</p>
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 利用协同过滤、深度学习和强化学习模型，分析用户的浏览历史、购买行为、搜索关键词、停留时间等，实时生成高度个性化的商品推荐。</p>
+                                    <p><span class="font-semibold text-gray-300">应用案例：</span> Amazon (Personalized Recommendations Engine): 驱动超过35%的销售额。 Alibaba (淘宝/天猫): 使用大规模AI推荐系统优化首页信息流和搜索结果，实现“千人千面”。</p>
+                                </div>
+                                <!-- 痛点 2: 模糊搜索结果差 -->
+                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-primary transition">
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 用户搜索商品时，语言描述模糊或仅有图片，搜索结果差。</p>
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 融合自然语言处理（NLP）和计算机视觉（CV），实现语义搜索和以图搜图，准确匹配用户意图。</p>
+                                    <p><span class="font-semibold text-gray-300">应用案例：</span> Pinterest (Lens): 允许用户拍摄照片搜索与其视觉相似的商品或创意。 eBay: 使用CV技术识别图片中的商品特征，提高搜索准确率。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 场景 2: 运营效率与成本控制 -->
+                        <div>
+                            <h5 class="text-lg font-bold text-secondary mb-3">2. 运营效率与成本控制</h5>
+                            <div class="space-y-4 text-sm">
+                                <!-- 痛点 1: 库存管理不精准 -->
+                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-secondary transition">
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 库存管理不精准，导致缺货或库存积压，影响资金周转。</p>
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 结合历史销量数据、季节性趋势、促销活动、社交媒体热度和宏观经济指标，使用预测模型进行精准需求预测和智能补货。</p>
+                                    <p><span class="font-semibold text-gray-300">应用案例：</span> Stitch Fix: 使用AI算法预测时尚趋势和客户偏好，指导其服装采购和库存水平。 Walmart: 应用AI优化供应链和物流，预测区域性需求差异。</p>
+                                </div>
+                                <!-- 痛点 2: 客户服务成本高 -->
+                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-secondary transition">
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 客户服务成本高，人工客服压力大，响应速度慢。</p>
+                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 聊天机器人（Chatbots）和虚拟客服（Virtual Agents）基于NLP理解用户意图，自动处理常见问题，减轻人工客服压力。</p>
+                                    <p><span class="font-semibold text-gray-300">应用案例：</span> Zendesk Answer Bot: 自动化处理简单客户咨询。 Taobao (阿里小蜜): 处理海量售前售后咨询，提高服务效率。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section: 核心项目 -->
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">项目 <span class="text-primary">实战案例</span></h2>
+                <p class="text-gray-400 mt-2">从 0 到 1 的独立开发与商业化落地实践</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- 项目卡片 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-primary transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
+                        <!-- 模拟项目截图效果 -->
+                        <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition duration-500" style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
+                        <div class="relative z-10 text-center">
+                            <i class="fa-solid fa-shirt text-5xl text-white mb-2"></i>
+                            <h3 class="text-xl font-bold text-white">AI 智能穿搭小助手</h3>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-900/50 text-blue-300 text-xs rounded border border-blue-800">RAG</span>
+                            <span class="px-2 py-1 bg-blue-900/50 text-blue-300 text-xs rounded border border-blue-800">Multi-modal Agent</span>
+                            <span class="px-2 py-1 bg-purple-900/50 text-purple-300 text-xs rounded border border-purple-800">LangChain</span>
+                            <span class="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded">Taro/React</span>
+                        </div>
+                        <p class="text-gray-300 mb-6 text-sm leading-relaxed">
+                            针对种草电商商业化不闭合的痛点以及货架电商传统人找货模型升级的需求点开发的微信小程序。
+                            <br><br>
+                            • <b>项目设计：</b>将种草穿搭与商品链接连接；同时针对用户穿搭需求，直接提供解决方案。<br>
+                            • <b>核心技术：</b>集成文心一言多模态能力与 Supabase 向量检索。<br>
+                            • <b>创新点：</b>设计了 RAG-to-AIGC 路由机制。私有造型库作为数据底座，AIGC进行结果补充。<br>
+                            • <b>成果：：</b>独立完成全栈开发（前端+Agent逻辑），实现以图搜图与智能筛选（商品链接功能暂未完成）。
+                        </p>
+                        <!-- 链接容器 -->
+                        <div class="flex flex-wrap gap-4 mt-4">
+                            <!-- 项目链接 1: 项目体验 -->
+                            <a href="https://app-7sew2co19atd.appmiaoda.com" target="_blank" class="inline-flex items-center text-primary hover:text-white transition">
+                                <!-- TODO: 请在此处替换为实际的 URL (例如：小程序的演示视频链接或 Git 仓库链接) -->
+                                项目体验 <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目卡片 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-green-500 transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition duration-500" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
+                        <div class="relative z-10 text-center">
+                            <i class="fa-solid fa-dna text-5xl text-white mb-2"></i>
+                            <h3 class="text-xl font-bold text-white">医疗行业销售培训</h3>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-green-900/50 text-green-300 text-xs rounded border border-green-800">Knowledge Graph</span>
+                            <span class="px-2 py-1 bg-green-900/50 text-green-300 text-xs rounded border border-green-800">数据结构化</span>
+                            <span class="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded">SOP 搭建</span>
+                        </div>
+                        <p class="text-gray-300 mb-6 text-sm leading-relaxed">
+                            解决医疗行业销售知识门槛高、培训周期长、培训成本高的问题。
+                            <br><br>
+                            • <b>项目设计：</b>构建实用型医学销售培训体系，集成各类知识为线上资料，同时增加AI陪练员模块<br>
+                            • <b>解决方案：</b>系统梳理多条疾病线临床指南，构建结构化知识库（RAG 前置工程）。<br>
+                            • <b>成果：：</b>从 0-1 搭建培训体系，通过标准化流程帮助新人上手，验证了知识工程在垂直领域的价值。
+                        </p>
+                        <!-- 链接容器：新增了第二个链接 -->
+                        <div class="flex flex-wrap gap-4 mt-4">
+                            <!-- 项目链接 1: 查看落地复盘 -->
+                            <a href="https://www.coze.cn/store/agent/7576127672796561460?bot_id=true" target="_blank" class="inline-flex items-center text-primary hover:text-white transition">
+                                <!-- TODO: 请在此处替换为实际的 URL (例如：项目复盘报告链接或详细介绍文档链接) -->
+                                查看落地复盘 <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </a>
+                            
+                            <!-- 项目链接 2: 演示文稿 (新增) -->
+                            <a href="https://pan.baidu.com/s/15bn9838jZEu2HRmgk-yJ-w?pwd=j6rz" target="_blank" class="inline-flex items-center text-accent hover:text-white transition">
+                                <!-- TODO: 请在此处替换为演示文稿 (PPT/PDF) 的实际 URL -->
+                                演示文稿 <i class="fa-solid fa-file-pdf ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Avatar Section: 数字分身交互 -->
+    <section id="avatar-chat" class="py-20 bg-surface/30 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">与我的 <span class="text-secondary">数字分身</span> 交互</h2>
+                <p class="text-gray-400 mt-2">基于我的简历知识库构建的 Lite-Agent，您可以问它任何关于我的问题。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 左侧：分身形象与状态 -->
+                <div class="md:col-span-1 glass-card rounded-2xl p-8 text-center flex flex-col items-center justify-center border-t-4 border-t-primary">
+                    <div class="w-32 h-32 rounded-full bg-gradient-to-tr from-gray-700 to-gray-900 flex items-center justify-center mb-6 avatar-glow relative">
+                        <!-- TODO: 替换为实际头像链接或SVG图标 -->
+                        <i class="fa-solid fa-brain text-5xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Lite-Agent</h3>
+                    <p class="text-gray-400 text-sm mt-1">AI 解决方案知识顾问</p>
+                    <div class="mt-4 flex items-center space-x-2 text-accent">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
+                        </span>
+                        <span>在线 (Ready)</span>
+                    </div>
+                </div>
+
+                <!-- 右侧：交互界面 (占位符) -->
+                <div class="md:col-span-2 glass-card rounded-2xl p-8 border-t-4 border-t-secondary">
+                    <h3 class="text-xl font-bold text-white mb-4">开始对话</h3>
+                    <div class="h-64 bg-dark rounded-lg p-4 mb-4 overflow-y-auto text-gray-300">
+                        <!-- 消息记录区域 -->
+                        <div class="text-sm text-gray-500 mb-2">
+                            您好！我是您的 AI 解决方案助理数字分身。请问您想了解关于我的哪些信息？
+                        </div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <input type="text" placeholder="输入您的问题，例如：你的医学背景是做什么的？" class="flex-1 p-3 rounded-lg bg-surface border border-gray-600 focus:border-secondary focus:ring-secondary text-white" />
+                        <button class="px-6 py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-bold hover:opacity-90 transition">
+                            发送 <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2024 AI Solution Expert Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
