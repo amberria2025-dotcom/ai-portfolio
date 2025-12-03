@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
     
     <script>
-        // 确保在整个页面（包括外部 CDN 脚本）加载完成后再进行 Tailwind 配置。
+        // 确保在整个页面加载完成后再进行 Tailwind 配置
         window.onload = function() {
             tailwind.config = {
                 theme: {
@@ -70,16 +70,6 @@
             transform: translateY(-50%);
             z-index: -1;
         }
-
-        /* 头像呼吸动画 */
-        .avatar-glow {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
-            animation: glow 3s infinite alternate;
-        }
-        @keyframes glow {
-            from { box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
-            to { box-shadow: 0 0 25px rgba(139, 92, 246, 0.6); }
-        }
     </style>
 </head>
 <body class="bg-dark text-gray-200 font-sans antialiased selection:bg-primary selection:text-white">
@@ -98,7 +88,7 @@
                         <a href="#home" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">首页</a>
                         <a href="#insights" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">思维体系</a>
                         <a href="#projects" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">实战案例</a>
-                        <a href="#avatar-chat" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">数字分身</a>
+                        <!-- 移除了联系方式导航链接 -->
                     </div>
                 </div>
             </div>
@@ -127,9 +117,9 @@
                 <a href="#insights" class="px-8 py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-bold hover:opacity-90 transition transform hover:scale-105 shadow-lg shadow-blue-500/30">
                     查看我的落地方法论
                 </a>
-                <!-- CTA 2: 与数字分身对话 (内部跳转，但作为主要行动点保留) -->
-                <a href="#avatar-chat" class="px-8 py-3 rounded-lg bg-surface border border-gray-600 hover:border-primary transition hover:text-primary">
-                    与数字分身对话
+                <!-- CTA 2: 下载完整简历 -->
+                <a href="#" class="px-8 py-3 rounded-lg bg-surface border border-gray-600 hover:border-primary transition hover:text-primary">
+                    下载完整简历 <i class="fa-solid fa-download ml-2"></i>
                 </a>
             </div>
         </div>
@@ -309,7 +299,7 @@
                             <br><br>
                             • <b>项目设计：</b>将种草穿搭与商品链接连接；同时针对用户穿搭需求，直接提供解决方案。<br>
                             • <b>核心技术：</b>集成文心一言多模态能力与 Supabase 向量检索。<br>
-                            • <b>创新点：</b>设计了 RAG-to-AIGC 路由机制。私有造型库作为数据底座，AIGC进行结果补充。<br>
+                            • <b>创新点：：</b>设计了 RAG-to-AIGC 路由机制。私有造型库作为数据底座，AIGC进行结果补充。<br>
                             • <b>成果：：</b>独立完成全栈开发（前端+Agent逻辑），实现以图搜图与智能筛选（商品链接功能暂未完成）。
                         </p>
                         <!-- 链接容器 -->
@@ -350,13 +340,13 @@
                             <!-- 项目链接 1: 查看落地复盘 -->
                             <a href="https://www.coze.cn/store/agent/7576127672796561460?bot_id=true" target="_blank" class="inline-flex items-center text-primary hover:text-white transition">
                                 <!-- TODO: 请在此处替换为实际的 URL (例如：项目复盘报告链接或详细介绍文档链接) -->
-                                查看落地复盘 <i class="fa-solid fa-arrow-right ml-2"></i>
+                                AI陪练员体验 <i class="fa-solid fa-arrow-right ml-2"></i>
                             </a>
                             
-                            <!-- 项目链接 2: 演示文稿 (新增) -->
+                            <!-- 项目链接 2: 演示文稿 (PPT/PDF) -->
                             <a href="https://pan.baidu.com/s/15bn9838jZEu2HRmgk-yJ-w?pwd=j6rz" target="_blank" class="inline-flex items-center text-accent hover:text-white transition">
                                 <!-- TODO: 请在此处替换为演示文稿 (PPT/PDF) 的实际 URL -->
-                                演示文稿 <i class="fa-solid fa-file-pdf ml-2"></i>
+                                医药销售培训体系 <i class="fa-solid fa-file-pdf ml-2"></i>
                             </a>
                         </div>
                     </div>
@@ -365,52 +355,6 @@
         </div>
     </section>
 
-    <!-- Interactive Avatar Section: 数字分身交互 -->
-    <section id="avatar-chat" class="py-20 bg-surface/30 relative">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold">与我的 <span class="text-secondary">数字分身</span> 交互</h2>
-                <p class="text-gray-400 mt-2">基于我的简历知识库构建的 Lite-Agent，您可以问它任何关于我的问题。</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- 左侧：分身形象与状态 -->
-                <div class="md:col-span-1 glass-card rounded-2xl p-8 text-center flex flex-col items-center justify-center border-t-4 border-t-primary">
-                    <div class="w-32 h-32 rounded-full bg-gradient-to-tr from-gray-700 to-gray-900 flex items-center justify-center mb-6 avatar-glow relative">
-                        <!-- TODO: 替换为实际头像链接或SVG图标 -->
-                        <i class="fa-solid fa-brain text-5xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold">Lite-Agent</h3>
-                    <p class="text-gray-400 text-sm mt-1">AI 解决方案知识顾问</p>
-                    <div class="mt-4 flex items-center space-x-2 text-accent">
-                        <span class="relative flex h-3 w-3">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
-                        </span>
-                        <span>在线 (Ready)</span>
-                    </div>
-                </div>
-
-                <!-- 右侧：交互界面 (占位符) -->
-                <div class="md:col-span-2 glass-card rounded-2xl p-8 border-t-4 border-t-secondary">
-                    <h3 class="text-xl font-bold text-white mb-4">开始对话</h3>
-                    <div class="h-64 bg-dark rounded-lg p-4 mb-4 overflow-y-auto text-gray-300">
-                        <!-- 消息记录区域 -->
-                        <div class="text-sm text-gray-500 mb-2">
-                            您好！我是您的 AI 解决方案助理数字分身。请问您想了解关于我的哪些信息？
-                        </div>
-                    </div>
-                    <div class="flex space-x-3">
-                        <input type="text" placeholder="输入您的问题，例如：你的医学背景是做什么的？" class="flex-1 p-3 rounded-lg bg-surface border border-gray-600 focus:border-secondary focus:ring-secondary text-white" />
-                        <button class="px-6 py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-bold hover:opacity-90 transition">
-                            发送 <i class="fa-solid fa-paper-plane ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- Footer -->
     <footer class="bg-dark border-t border-gray-800 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
