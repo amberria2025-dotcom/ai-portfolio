@@ -28,39 +28,13 @@ AI 智能穿搭小助手： 使用 RAG、多模态 Agent 和 LangChain 进行从
 
 本项目是一个轻量级、响应式、零依赖（运行时）的静态网页，适合快速部署和高效展示。
 
-类别
+前端：HTML5, JavaScript (Vanilla JS)；基础结构和交互逻辑。
 
-技术/工具
+样式：Tailwind CSS；用于实现快速、现代且响应式的界面设计，包括 Flex/Grid 布局和组件样式。
 
-描述
+美化：Noto Sans SC (Google Fonts)；确保中文字体清晰美观。
 
-前端
+视觉：Font Awesome；提供专业的图标支持。
 
-HTML5, JavaScript (Vanilla JS)
-
-基础结构和交互逻辑。
-
-样式
-
-Tailwind CSS
-
-用于实现快速、现代且响应式的界面设计，包括 Flex/Grid 布局和组件样式。
-
-美化
-
-Noto Sans SC (Google Fonts)
-
-确保中文字体清晰美观。
-
-视觉
-
-Font Awesome
-
-提供专业的图标支持。
-
-设计
-
-玻璃拟态 (Glassmorphism)
-
-使用 backdrop-filter: blur() 实现科技感卡片效果。
+设计：玻璃拟态 (Glassmorphism)；使用 backdrop-filter: blur() 实现科技感卡片效果。
 
