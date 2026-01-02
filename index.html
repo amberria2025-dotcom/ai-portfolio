@@ -12,17 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
     
     <script>
-        // 确保在整个页面加载完成后再进行 Tailwind 配置
         window.onload = function() {
             tailwind.config = {
                 theme: {
                     extend: {
                         colors: {
-                            primary: '#3B82F6', // 科技蓝
-                            secondary: '#8B5CF6', // 智能紫
-                            dark: '#0F172A', // 深邃黑背景
-                            surface: '#1E293B', // 卡片背景
-                            accent: '#10B981', // 成功绿
+                            primary: '#3B82F6',
+                            secondary: '#8B5CF6',
+                            dark: '#0F172A',
+                            surface: '#1E293B',
+                            accent: '#10B981',
                         },
                         fontFamily: {
                             sans: ['"Noto Sans SC"', 'sans-serif'],
@@ -33,42 +32,15 @@
         };
     </script>
     <style>
-        /* 自定义滚动条 */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0F172A;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
         
-        /* 玻璃拟态效果 */
         .glass-card {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* 流程连接线动画 */
-        .flow-line {
-            position: relative;
-        }
-        .flow-line::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #3B82F6, transparent);
-            transform: translateY(-50%);
-            z-index: -1;
         }
     </style>
 </head>
@@ -88,19 +60,17 @@
                         <a href="#home" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">首页</a>
                         <a href="#insights" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">思维体系</a>
                         <a href="#projects" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">实战案例</a>
-                        <!-- 移除了联系方式导航链接 -->
+                        <a href="#matrix" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition">行业矩阵</a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section: 个人定位 -->
+    <!-- Hero Section -->
     <section id="home" class="pt-32 pb-20 relative overflow-hidden">
-        <!-- 背景装饰 -->
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary opacity-10 rounded-full blur-3xl filter -z-10"></div>
         <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary opacity-10 rounded-full blur-3xl filter -z-10"></div>
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="inline-block px-4 py-1 mb-6 rounded-full bg-surface border border-gray-700 text-sm text-primary">
                 🚀 生物医学硕士 x 市场实战 x AI 开发者
@@ -110,237 +80,188 @@
                 转化为 <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">可落地的 AI 解决方案</span>
             </h1>
             <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400">
-                我不止写代码，更懂业务。利用 RAG、Agent 与多模态技术，解决医学检测与新零售领域的真实商业难题，期待成为AI工业革命浪潮一员。
+                我不止写代码，更懂业务。利用 RAG、Agent Workflow 与多模态技术，解决医学检测与新零售领域的真实商业难题。
             </p>
-            <!-- 移除了 CTA 按钮区域 -->
         </div>
     </section>
 
-    <!-- Insights Section: 行业认知与方法论 (重构核心) -->
+    <!-- 思维体系 Section -->
     <section id="insights" class="py-20 bg-surface/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold">AI 落地 <span class="text-secondary">认知与方法论</span></h2>
+                <h2 class="text-3xl font-bold">AI 落地 <span class="text-secondary">方法论流程</span></h2>
                 <p class="text-gray-400 mt-2">不为了技术而技术，只为了解决问题而应用。</p>
             </div>
 
-            <!-- 1. 落地方法论流程图 -->
-            <div class="mb-20">
+            <div class="mb-10">
                 <h3 class="text-xl font-bold text-white mb-8 border-l-4 border-primary pl-4">我的 AI 解决方案闭环 (The Landing Framework)</h3>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
-                    <!-- Step 1 -->
                     <div class="glass-card p-6 rounded-xl relative z-10 hover:border-primary transition">
                         <div class="text-4xl text-gray-600 font-bold mb-2 opacity-30">01</div>
                         <h4 class="text-lg font-bold text-primary mb-2"><i class="fa-solid fa-stethoscope mr-2"></i>场景诊断</h4>
-                        <p class="text-sm text-gray-400">判断 "能不能做" 与 "值不值得做"。核心评估：<b>数据质量</b>、<b>容错率</b>与<b>ROI</b>。</p>
+                        <p class="text-sm text-gray-400">核心评估：<b>数据质量</b>、<b>容错率</b>与<b>ROI</b>。</p>
                     </div>
-                    <!-- Step 2 -->
                     <div class="glass-card p-6 rounded-xl relative z-10 hover:border-primary transition">
                         <div class="text-4xl text-gray-600 font-bold mb-2 opacity-30">02</div>
                         <h4 class="text-lg font-bold text-secondary mb-2"><i class="fa-solid fa-database mr-2"></i>数据基建</h4>
-                        <p class="text-sm text-gray-400">无数据不 AI。专注于垂直领域<b>非结构化数据</b>（SOP/图像/病历）的清洗与结构化。</p>
+                        <p class="text-sm text-gray-400">专注于垂直领域<b>非结构化数据</b>的清洗与结构化。</p>
                     </div>
-                    <!-- Step 3 -->
                     <div class="glass-card p-6 rounded-xl relative z-10 hover:border-primary transition">
                         <div class="text-4xl text-gray-600 font-bold mb-2 opacity-30">03</div>
                         <h4 class="text-lg font-bold text-accent mb-2"><i class="fa-solid fa-microchip mr-2"></i>模型与架构</h4>
-                        <p class="text-sm text-gray-400">基于项目预算、安全要求和技术需求，选择合适的大模型与解决方案。</p>
+                        <p class="text-sm text-gray-400">选择合适的大模型与 RAG/Agent 架构进行适配。</p>
                     </div>
-                    <!-- Step 4 -->
                     <div class="glass-card p-6 rounded-xl relative z-10 hover:border-primary transition">
                         <div class="text-4xl text-gray-600 font-bold mb-2 opacity-30">04</div>
                         <h4 class="text-lg font-bold text-blue-400 mb-2"><i class="fa-solid fa-arrows-spin mr-2"></i>人机协作</h4>
-                        <p class="text-sm text-gray-400">AI 是 Copilot。设计 <b>Human-in-the-loop</b> 机制，确保合规与最后一步决策权。</p>
+                        <p class="text-sm text-gray-400">设计 <b>Human-in-the-loop</b> 机制，确保合规。</p>
                     </div>
-                    
-                    <!-- 桌面端连接线 -->
                     <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-primary/20 via-secondary/50 to-accent/20 -z-0 transform -translate-y-1/2"></div>
-                </div>
-            </div>
-
-            <!-- 2. 行业解决方案矩阵 (卡片网格重构) -->
-            <div>
-                <!-- Modified: Added flex container for title and 'more' link, moved mb-8 here -->
-                <div class="flex justify-between items-center mb-8">
-                    <h3 class="text-xl font-bold text-white border-l-4 border-secondary pl-4">垂直行业痛点与 AI 解法 (Industry Matrix)</h3>
-                    <!-- 'More' Link modified: Changed the placeholder URL to # for better testing -->
-                    <!-- TODO: !!! 请将 href="#" 替换为您的行业报告文档链接 (如 Google Doc, PDF, Notion 等) !!! -->
-                    <a href="https://ai.feishu.cn/wiki/LBFowD3jQiCVBPke5FzcowGrnEc?from=from_copylink" target="_blank" class="text-sm text-secondary hover:text-primary transition flex items-center font-medium px-3 py-1 rounded-full border border-secondary/50 hover:border-primary">
-                        查看完整报告 <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
-                    </a>
-                </div>
-                
-                <div class="space-y-12">
-                    <!-- 卡片 1: 医疗/生命科学 (已更新为CSV数据) -->
-                    <div class="glass-card rounded-xl shadow-lg border-t-4 border-t-blue-400 p-6">
-                        <h4 class="text-xl font-bold text-blue-300 mb-4 flex items-center border-b border-gray-700 pb-3">
-                            <i class="fa-solid fa-user-doctor mr-2"></i> 医疗/生命科学 (多场景应用)
-                        </h4>
-
-                        <!-- 场景 1: 辅助诊断与影像分析 -->
-                        <div class="mb-6">
-                            <h5 class="text-lg font-bold text-primary mb-3">1. 辅助诊断与影像分析</h5>
-                            <div class="space-y-4 text-sm">
-                                <!-- 痛点 1: 阅片负荷 -->
-                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-primary transition">
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 阅片负荷大，易产生疲劳导致漏诊/误诊（如微小病灶）。</p>
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 深度学习模型快速处理、分析医学影像（X光、CT、MRI、病理切片），进行病灶检测、定量分析和良恶性判断。</p>
-                                    <p><span class="font-semibold text-gray-300">应用案例：</span> Perceptra (Google DeepMind/Verily): 用于糖尿病视网膜病变（DR）的筛查。 InferRead CT Lung (推想科技): 辅助医生进行肺结节的检测与测量。</p>
-                                </div>
-                                <!-- 痛点 2: 病理切片分析 -->
-                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-primary transition">
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 病理切片分析复杂耗时，要求高专业度。</p>
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 数字病理AI分析，自动分割、分类组织类型，识别癌细胞和免疫细胞，加速病理诊断流程。</p>
-                                    <p><span class="font-semibold text-gray-300">应用案例：</span> PathAI/Paige: 专注于癌症病理学诊断，通过分析全玻片图像（WSI）辅助肿瘤分级和预后预测。</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 场景 2: 药物研发与新药发现 -->
-                        <div>
-                            <h5 class="text-lg font-bold text-secondary mb-3">2. 药物研发与新药发现</h5>
-                            <div class="space-y-4 text-sm">
-                                <!-- 痛点 1: 药物研发周期 -->
-                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-secondary transition">
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 药物研发周期长（平均10-15年）、成本高、成功率低。</p>
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 药物靶点识别、化合物虚拟筛选、分子设计优化和ADMET（吸收、分布、代谢、排泄、毒性）性质预测，极大地缩短了临床前研究时间。</p>
-                                    <p><span class="font-semibold text-gray-300">应用案例：</span> AlphaFold (DeepMind): 预测蛋白质三维结构。 Insilico Medicine (英科智能): 使用生成式AI（Generative AI）设计新型分子结构，并已成功推进多个AI发现的药物进入临床试验。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 卡片 2: 新零售/时尚电商 (已更新为CSV数据) -->
-                    <div class="glass-card rounded-xl shadow-lg border-t-4 border-t-purple-400 p-6">
-                        <h4 class="text-xl font-bold text-purple-300 mb-4 flex items-center border-b border-gray-700 pb-3">
-                            <i class="fa-solid fa-bag-shopping mr-2"></i> 新零售/时尚电商 (多场景应用)
-                        </h4>
-                        
-                        <!-- 场景 1: 个性化推荐与用户体验 -->
-                        <div class="mb-6">
-                            <h5 class="text-lg font-bold text-primary mb-3">1. 个性化推荐与用户体验</h5>
-                            <div class="space-y-4 text-sm">
-                                <!-- 痛点 1: 推荐结果不精准 -->
-                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-primary transition">
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 用户在海量商品中难以找到所需，转化率低；推荐结果不精准。</p>
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 利用协同过滤、深度学习和强化学习模型，分析用户的浏览历史、购买行为、搜索关键词、停留时间等，实时生成高度个性化的商品推荐。</p>
-                                    <p><span class="font-semibold text-gray-300">应用案例：</span> Amazon (Personalized Recommendations Engine): 驱动超过35%的销售额。 Alibaba (淘宝/天猫): 使用大规模AI推荐系统优化首页信息流和搜索结果，实现“千人千面”。</p>
-                                </div>
-                                <!-- 痛点 2: 模糊搜索结果差 -->
-                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-primary transition">
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 用户搜索商品时，语言描述模糊或仅有图片，搜索结果差。</p>
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 融合自然语言处理（NLP）和计算机视觉（CV），实现语义搜索和以图搜图，准确匹配用户意图。</p>
-                                    <p><span class="font-semibold text-gray-300">应用案例：</span> Pinterest (Lens): 允许用户拍摄照片搜索与其视觉相似的商品或创意。 eBay: 使用CV技术识别图片中的商品特征，提高搜索准确率。</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 场景 2: 运营效率与成本控制 -->
-                        <div>
-                            <h5 class="text-lg font-bold text-secondary mb-3">2. 运营效率与成本控制</h5>
-                            <div class="space-y-4 text-sm">
-                                <!-- 痛点 1: 库存管理不精准 -->
-                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-secondary transition">
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 库存管理不精准，导致缺货或库存积压，影响资金周转。</p>
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 结合历史销量数据、季节性趋势、促销活动、社交媒体热度和宏观经济指标，使用预测模型进行精准需求预测和智能补货。</p>
-                                    <p><span class="font-semibold text-gray-300">应用案例：</span> Stitch Fix: 使用AI算法预测时尚趋势和客户偏好，指导其服装采购和库存水平。 Walmart: 应用AI优化供应链和物流，预测区域性需求差异。</p>
-                                </div>
-                                <!-- 痛点 2: 客户服务成本高 -->
-                                <div class="p-3 bg-surface rounded-lg border border-gray-700 hover:border-secondary transition">
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">痛点：</span> 客户服务成本高，人工客服压力大，响应速度慢。</p>
-                                    <p class="mb-1"><span class="font-semibold text-gray-300">AI 方案：</span> 聊天机器人（Chatbots）和虚拟客服（Virtual Agents）基于NLP理解用户意图，自动处理常见问题，减轻人工客服压力。</p>
-                                    <p><span class="font-semibold text-gray-300">应用案例：</span> Zendesk Answer Bot: 自动化处理简单客户咨询。 Taobao (阿里小蜜): 处理海量售前售后咨询，提高服务效率。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section: 核心项目 -->
+    <!-- 实战案例 Section -->
     <section id="projects" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold">项目 <span class="text-primary">实战案例</span></h2>
-                <p class="text-gray-400 mt-2">从 0 到 1 的独立开发与商业化落地实践</p>
+                <p class="text-gray-400 mt-2">基于痛点洞察、方案构建与量化结果的 AI 实践</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- 项目卡片 1 -->
-                <div class="glass-card rounded-2xl overflow-hidden group hover:border-primary transition duration-300">
-                    <div class="h-48 bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
-                        <!-- 模拟项目截图效果 -->
-                        <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition duration-500" style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
-                        <div class="relative z-10 text-center">
-                            <i class="fa-solid fa-shirt text-5xl text-white mb-2"></i>
-                            <h3 class="text-xl font-bold text-white">AI 智能穿搭小助手</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 项目一: 新品上市推广自动化 -->
+                <div class="glass-card rounded-2xl overflow-hidden border-l-4 border-accent">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-white flex items-center">
+                                <i class="fa-solid fa-rocket text-accent mr-2"></i> 新品上市推广自动化工作流
+                            </h3>
+                            <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded">Agent Workflow</span>
                         </div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-blue-900/50 text-blue-300 text-xs rounded border border-blue-800">RAG</span>
-                            <span class="px-2 py-1 bg-blue-900/50 text-blue-300 text-xs rounded border border-blue-800">Multi-modal Agent</span>
-                            <span class="px-2 py-1 bg-purple-900/50 text-purple-300 text-xs rounded border border-purple-800">LangChain</span>
-                            <span class="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded">Taro/React</span>
-                        </div>
-                        <p class="text-gray-300 mb-6 text-sm leading-relaxed">
-                            针对种草电商商业化不闭合的痛点以及货架电商传统人找货模型升级的需求点开发的微信小程序。
-                            <br><br>
-                            • <b>项目设计：</b>将种草穿搭与商品链接连接；同时针对用户穿搭需求，直接提供解决方案。<br>
-                            • <b>核心技术：</b>集成文心一言多模态能力与 Supabase 向量检索。<br>
-                            • <b>创新点：：</b>设计了 RAG-to-AIGC 路由机制。私有造型库作为数据底座，AIGC进行结果补充。<br>
-                            • <b>成果：：</b>独立完成全栈开发（前端+Agent逻辑），实现以图搜图与智能筛选（商品链接功能暂未完成）。
-                        </p>
-                        <!-- 链接容器 -->
-                        <div class="flex flex-wrap gap-4 mt-4">
-                            <!-- 项目链接 1: 项目体验 -->
-                            <a href="https://app-7sew2co19atd.appmiaoda.com" target="_blank" class="inline-flex items-center text-primary hover:text-white transition">
-                                <!-- TODO: 请在此处替换为实际的 URL (例如：小程序的演示视频链接或 Git 仓库链接) -->
-                                项目体验 <i class="fa-solid fa-arrow-right ml-2"></i>
-                            </a>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-accent text-sm font-bold uppercase tracking-wider mb-1">● 痛点 (Pain Point)</h4>
+                                <p class="text-sm text-gray-400">新品上市过程中“市场洞察滞后、物料产出慢、客户开发盲目”的效率瓶颈。</p>
+                            </div>
+                            <div>
+                                <h4 class="text-accent text-sm font-bold uppercase tracking-wider mb-1">● 方案 (Solution)</h4>
+                                <p class="text-sm text-gray-400">构建多 Agent 协作工作流。由调研 Agent 提取卖点，文案 Agent 匹配受众画像，最后通过合规 Agent 进行法规约束检查。</p>
+                            </div>
+                            <div>
+                                <h4 class="text-accent text-sm font-bold uppercase tracking-wider mb-1">● 结果 (Outcome)</h4>
+                                <p class="text-sm text-gray-400">营销物料筹备周期从1-2周缩短至小时级别。</p>
+                            </div>
+                            <div class="pt-2">
+                                <a href="https://udify.app/workflow/AR2cbb6J2rVyv3Dd" target="_blank" class="text-accent text-xs font-bold hover:underline">查看 Demo 详情 <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 项目卡片 2 -->
-                <div class="glass-card rounded-2xl overflow-hidden group hover:border-green-500 transition duration-300">
-                    <div class="h-48 bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition duration-500" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
-                        <div class="relative z-10 text-center">
-                            <i class="fa-solid fa-dna text-5xl text-white mb-2"></i>
-                            <h3 class="text-xl font-bold text-white">医疗行业销售培训</h3>
+                <!-- 项目二: 学术营销销售助手 -->
+                <div class="glass-card rounded-2xl overflow-hidden border-l-4 border-secondary">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-white flex items-center">
+                                <i class="fa-solid fa-dna text-secondary mr-2"></i> 学术营销销售助手
+                            </h3>
+                            <span class="px-2 py-0.5 bg-secondary/20 text-secondary text-xs rounded">RAG</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-secondary text-sm font-bold uppercase tracking-wider mb-1">● 痛点 (Pain Point)</h4>
+                                <p class="text-sm text-gray-400">医学检测高壁垒行业中“专业知识高深、营销话术肤浅”导致的脱节问题。</p>
+                            </div>
+                            <div>
+                                <h4 class="text-secondary text-sm font-bold uppercase tracking-wider mb-1">● 方案 (Solution)</h4>
+                                <p class="text-sm text-gray-400">基于专业学术数据库构建 RAG (检索增强生成) 系统，设计 “学术驱动商业”约束节点，通过向量检索锁定指南原文，并强制 Agent 必须在引文中给出学术证据链接。</p>
+                            </div>
+                            <div>
+                                <h4 class="text-secondary text-sm font-bold uppercase tracking-wider mb-1">● 结果 (Outcome)</h4>
+                                <p class="text-sm text-gray-400">有效减少学术幻觉，促进销售团队向学术型转变。</p>
+                            </div>
+                            <div class="pt-2">
+                                <a href="https://udify.app/workflow/lFs8vxN2LkPSE39R" target="_blank" class="text-secondary text-xs font-bold hover:underline">查看 Demo 详情 <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="p-8">
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-green-900/50 text-green-300 text-xs rounded border border-green-800">Knowledge Graph</span>
-                            <span class="px-2 py-1 bg-green-900/50 text-green-300 text-xs rounded border border-green-800">数据结构化</span>
-                            <span class="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded">SOP 搭建</span>
+                </div>
+
+                <!-- 项目三: AI 智能穿搭小助手 (Outfit AI Agent) -->
+                <div class="glass-card rounded-2xl overflow-hidden border-l-4 border-primary lg:col-span-2">
+                    <div class="p-6">
+                        <div class="flex flex-wrap items-center justify-between mb-4 gap-2">
+                            <h3 class="text-xl font-bold text-white flex items-center">
+                                <i class="fa-solid fa-shirt text-primary mr-2"></i> AI 智能穿搭小助手 (Outfit AI Agent)
+                            </h3>
+                            <div class="flex gap-2">
+                                <span class="px-2 py-0.5 bg-primary/20 text-primary text-xs rounded">Multi-modal Agent</span>
+                                <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 text-xs rounded">Supabase RAG</span>
+                            </div>
                         </div>
-                        <p class="text-gray-300 mb-6 text-sm leading-relaxed">
-                            解决医疗行业销售知识门槛高、培训周期长、培训成本高的问题。
-                            <br><br>
-                            • <b>项目设计：</b>构建实用型医学销售培训体系，集成各类知识为线上资料，同时增加AI陪练员模块<br>
-                            • <b>解决方案：</b>系统梳理多条疾病线临床指南，构建结构化知识库（RAG 前置工程）。<br>
-                            • <b>成果：：</b>从 0-1 搭建培训体系，通过标准化流程帮助新人上手，验证了知识工程在垂直领域的价值。
-                        </p>
-                        <!-- 链接容器：新增了第二个链接 -->
-                        <div class="flex flex-wrap gap-4 mt-4">
-                            <!-- 项目链接 1: 查看落地复盘 -->
-                            <a href="https://www.coze.cn/store/agent/7576127672796561460?bot_id=true" target="_blank" class="inline-flex items-center text-primary hover:text-white transition">
-                                <!-- TODO: 请在此处替换为实际的 URL (例如：项目复盘报告链接或详细介绍文档链接) -->
-                                AI陪练员体验 <i class="fa-solid fa-arrow-right ml-2"></i>
-                            </a>
-                            
-                            <!-- 项目链接 2: 演示文稿 (PPT/PDF) -->
-                            <a href="https://pan.baidu.com/s/15bn9838jZEu2HRmgk-yJ-w?pwd=j6rz" target="_blank" class="inline-flex items-center text-accent hover:text-white transition">
-                                <!-- TODO: 请在此处替换为演示文稿 (PPT/PDF) 的实际 URL -->
-                                医药销售培训体系 <i class="fa-solid fa-file-pdf ml-2"></i>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div>
+                                <h4 class="text-primary text-sm font-bold uppercase tracking-wider mb-1">● 痛点 (Pain Point)</h4>
+                                <p class="text-sm text-gray-400">用户衣橱闲置率高、日常搭配灵感枯竭。</p>
+                            </div>
+                            <div>
+                                <h4 class="text-primary text-sm font-bold uppercase tracking-wider mb-1">● 方案 (Solution)</h4>
+                                <p class="text-sm text-gray-400">开发多模态 Agent。用户上传参考图或描述需求，系统通过 CLIP 模型进行语义对齐，在库内检索相似单品。当库内单品不足时，触发生成式模型提供搭配建议。</p>
+                            </div>
+                            <div>
+                                <h4 class="text-primary text-sm font-bold uppercase tracking-wider mb-1">● 结果 (Outcome)</h4>
+                                <p class="text-sm text-gray-400">验证了“RAG+AIGC”混合架构在解决垂直领域推荐问题上的可行性与优越性，也为电商用户决策路径提供思路。</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex justify-end">
+                            <a href="https://app-7sew2co19atd.appmiaoda.com" target="_blank" class="px-6 py-2 bg-primary hover:bg-blue-600 text-white rounded-full transition text-sm font-bold shadow-lg shadow-primary/20">
+                                在线体验完整项目 <i class="fa-solid fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行业矩阵 Section -->
+    <section id="matrix" class="py-20 bg-surface/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-between items-center mb-12 gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold">垂直行业 <span class="text-secondary">痛点与 AI 解法</span></h2>
+                    <p class="text-gray-400 mt-2 text-sm">Industry Matrix: 深度场景洞察与落地建议</p>
+                </div>
+                <a href="https://ai.feishu.cn/wiki/LBFowD3jQiCVBPke5FzcowGrnEc?table=blkyT1G9ZCBXaCrf" target="_blank" class="flex text-sm text-secondary hover:text-primary transition items-center font-medium px-4 py-2 rounded-full border border-secondary/50 hover:border-primary shadow-sm">
+                    <span class="hidden sm:inline">查看完整研究报告</span>
+                    <span class="sm:hidden">报告全文</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 医疗卡片 -->
+                <div class="glass-card rounded-xl p-6 border-l-4 border-l-blue-400">
+                    <h4 class="text-xl font-bold text-blue-300 mb-4 flex items-center">
+                        <i class="fa-solid fa-user-doctor mr-2"></i> 医疗/生命科学
+                    </h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        <strong class="text-gray-200">核心痛点：</strong> 知识门槛高、合规性要求严、诊疗效率受限。<br>
+                        <strong class="text-gray-200">AI 解法：</strong> 循证医学 RAG 知识库、自动化预诊 Agent、病历结构化工具。
+                    </p>
+                </div>
+
+                <!-- 零售卡片 -->
+                <div class="glass-card rounded-xl p-6 border-l-4 border-l-purple-400">
+                    <h4 class="text-xl font-bold text-purple-300 mb-4 flex items-center">
+                        <i class="fa-solid fa-bag-shopping mr-2"></i> 新零售/时尚电商
+                    </h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        <strong class="text-gray-200">核心痛点：</strong> 供需匹配效率低、个性化门槛高、营销内容同质化。<br>
+                        <strong class="text-gray-200">AI 解法：</strong> 多模态灵感推荐、自动化营销内容工坊、库存预测智能体。
+                    </p>
                 </div>
             </div>
         </div>
